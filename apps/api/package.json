@@ -1,0 +1,31 @@
+{
+  "name": "api",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "lint": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "hono": "latest",
+    "@hono/node-server": "latest",
+    "firebase-admin": "latest",
+    "firebase-functions": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "eslint": "latest",
+    "dotenv": "latest"
+  },
+  "main": "dist/index.js",
+  "engines": {
+    "node": "18"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "vite-hono-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "dev:web": "turbo run dev --filter=web",
+    "dev:api": "turbo run dev --filter=api",
+    "dev:mobile": "turbo run dev --filter=mobile",
+    "dev:mobile:web": "turbo run dev:web --filter=mobile",
+    "build:web": "turbo run build --filter=web",
+    "build:api": "turbo run build --filter=api",
+    "build:mobile": "turbo run build --filter=mobile",
+    "typecheck": "turbo run typecheck",
+    "deploy": "turbo run build --filter=web --filter=api && firebase deploy",
+    "deploy:script": "chmod +x ./deploy.sh && ./deploy.sh",
+    "setup": "chmod +x ./setup-env.sh && ./setup-env.sh"
+  },
+  "devDependencies": {
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@8.15.3"
+}
